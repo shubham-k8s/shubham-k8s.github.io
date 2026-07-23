@@ -178,9 +178,24 @@ nav {
 .cert-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 14px; padding: 1.25rem;
-  display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+  display: flex; align-items: center; gap: 1rem;
 }
-.cert-card.expired { opacity: .55; } /* dim expired certs */
+.cert-card.expired { opacity: .55; }
+/* Badge image on the left */
+.cert-img {
+  width: 64px; height: 64px; object-fit: contain; flex-shrink: 0;
+  border-radius: 8px;
+}
+/* Placeholder for certs without a badge image (Databricks, Neo4j, Cloudera) */
+.cert-img-placeholder {
+  width: 64px; height: 64px; flex-shrink: 0; border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: var(--muted); text-align: center;
+  line-height: 1.3; padding: 4px;
+}
+/* Text block grows to fill remaining space */
+.cert-body { flex: 1; min-width: 0; }
 .cert-name { font-size: 13px; font-weight: 600; }
 .cert-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
 .cert-note { font-size: 10px; margin-top: 3px; }
@@ -188,7 +203,7 @@ nav {
   font-size: 10px; background: var(--vl); color: var(--violet);
   border: 1px solid var(--vm); padding: 4px 10px; border-radius: 20px;
   white-space: nowrap; text-decoration: none; flex-shrink: 0;
-  transition: opacity .2s;
+  transition: opacity .2s; margin-top: 6px; display: inline-block;
 }
 .cert-badge:hover { opacity: .75; }
 .cert-badge.tl { background: var(--tl); color: var(--teal); border-color: #9FE1CB; }
@@ -437,85 +452,105 @@ footer {
   <div class="cert-grid">
 
     <div class="cert-card">
-      <div>
+      <img class="cert-img" src="https://images.credly.com/images/9945dfcb-1cca-4529-85e6-db1be3782210/linkedin_thumb_kubernetes-security-specialist-logo2.png" alt="CKS badge">
+      <div class="cert-body">
         <div class="cert-name">CKS</div>
         <div class="cert-sub">Certified Kubernetes Security Specialist</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px">Expires Nov 2, 2026</div>
+        <div class="cert-note" style="color:var(--muted)">Expires Nov 2, 2026</div>
+        <a href="https://www.credly.com/badges/b84d3867-5ad4-4cf3-a2af-fbbd508b27f1/public_url" target="_blank" class="cert-badge">CNCF &#8599;</a>
       </div>
-      <a href="https://www.credly.com/badges/b84d3867-5ad4-4cf3-a2af-fbbd508b27f1/public_url" target="_blank" class="cert-badge">CNCF &#8599;</a>
     </div>
+
     <div class="cert-card">
-      <div>
+      <img class="cert-img" src="https://images.credly.com/images/8b8ed108-e77d-4396-ac59-2504583b9d54/linkedin_thumb_cka_from_cncfsite__281_29.png" alt="CKA badge">
+      <div class="cert-body">
         <div class="cert-name">CKA</div>
         <div class="cert-sub">Certified Kubernetes Administrator</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px">Expires Nov 2, 2026</div>
+        <div class="cert-note" style="color:var(--muted)">Expires Nov 2, 2026</div>
+        <a href="https://www.credly.com/badges/2cbf15fa-159c-4589-8e9c-5f4cfe5d452f/public_url" target="_blank" class="cert-badge">CNCF &#8599;</a>
       </div>
-      <a href="https://www.credly.com/badges/2cbf15fa-159c-4589-8e9c-5f4cfe5d452f/public_url" target="_blank" class="cert-badge">CNCF &#8599;</a>
     </div>
+
     <div class="cert-card">
-      <div>
+      <img class="cert-img" src="https://images.credly.com/images/cc8adc83-1dc6-4d57-8e20-22171247e052/linkedin_thumb_blob" alt="CKAD badge">
+      <div class="cert-body">
         <div class="cert-name">CKAD</div>
         <div class="cert-sub">Certified Kubernetes Application Developer</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px">Expires Aug 5, 2027</div>
+        <div class="cert-note" style="color:var(--muted)">Expires Aug 5, 2027</div>
+        <a href="https://www.credly.com/badges/c101a17f-df76-4628-a92a-605e0f811b10/public_url" target="_blank" class="cert-badge">CNCF &#8599;</a>
       </div>
-      <a href="https://www.credly.com/badges/c101a17f-df76-4628-a92a-605e0f811b10/public_url" target="_blank" class="cert-badge">CNCF &#8599;</a>
     </div>
+
     <div class="cert-card">
-      <div>
+      <img class="cert-img" src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/linkedin_thumb_image.png" alt="AWS SAA badge">
+      <div class="cert-body">
         <div class="cert-name">AWS SAA</div>
         <div class="cert-sub">AWS Certified Solutions Architect &ndash; Associate</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px">Expires Mar 12, 2027</div>
+        <div class="cert-note" style="color:var(--muted)">Expires Mar 12, 2027</div>
+        <a href="https://www.credly.com/badges/48c50b1d-852c-4926-9cbc-20b70a2f2c71/public_url" target="_blank" class="cert-badge tl">AWS &#8599;</a>
       </div>
-      <a href="https://www.credly.com/badges/48c50b1d-852c-4926-9cbc-20b70a2f2c71/public_url" target="_blank" class="cert-badge tl">AWS &#8599;</a>
     </div>
+
     <div class="cert-card">
-      <div>
+      <img class="cert-img" src="https://images.credly.com/images/519a6dba-f145-4c1a-85a2-1d173d6898d9/linkedin_thumb_image.png" alt="AWS Architecting badge">
+      <div class="cert-body">
         <div class="cert-name">AWS Knowledge</div>
         <div class="cert-sub">AWS Knowledge: Architecting</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px">Issued Mar 3, 2024</div>
+        <div class="cert-note" style="color:var(--muted)">Issued Mar 3, 2024</div>
+        <a href="https://www.credly.com/badges/40ab5206-540e-4422-ad16-b7b868f0cf4a/public_url" target="_blank" class="cert-badge tl">AWS &#8599;</a>
       </div>
-      <a href="https://www.credly.com/badges/40ab5206-540e-4422-ad16-b7b868f0cf4a/public_url" target="_blank" class="cert-badge tl">AWS &#8599;</a>
     </div>
+
     <div class="cert-card">
-      <div>
+      <img class="cert-img" src="https://images.credly.com/images/7cf036b0-c609-4378-a7be-9969e1dea7ab/linkedin_thumb_blob" alt="AWS Cloud Essentials badge">
+      <div class="cert-body">
         <div class="cert-name">AWS Knowledge</div>
         <div class="cert-sub">AWS Knowledge: Cloud Essentials</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px">Issued Mar 6, 2024</div>
+        <div class="cert-note" style="color:var(--muted)">Issued Mar 6, 2024</div>
+        <a href="https://www.credly.com/badges/4176e0f7-26ff-41b7-8f44-b8b6d65b8220/public_url" target="_blank" class="cert-badge tl">AWS &#8599;</a>
       </div>
-      <a href="https://www.credly.com/badges/4176e0f7-26ff-41b7-8f44-b8b6d65b8220/public_url" target="_blank" class="cert-badge tl">AWS &#8599;</a>
     </div>
+
     <div class="cert-card">
-      <div>
+      <img class="cert-img" src="https://images.credly.com/images/f5efafe6-ebdc-485c-9ffa-3a05533e634b/linkedin_thumb_blob" alt="AWS EKS badge">
+      <div class="cert-body">
         <div class="cert-name">AWS Knowledge</div>
         <div class="cert-sub">AWS Knowledge: Amazon EKS</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px">Issued Nov 5, 2024</div>
+        <div class="cert-note" style="color:var(--muted)">Issued Nov 5, 2024</div>
+        <a href="https://www.credly.com/badges/b530913e-e68c-4502-b317-8877f489d3a1/public_url" target="_blank" class="cert-badge tl">AWS &#8599;</a>
       </div>
-      <a href="https://www.credly.com/badges/b530913e-e68c-4502-b317-8877f489d3a1/public_url" target="_blank" class="cert-badge tl">AWS &#8599;</a>
     </div>
+
     <div class="cert-card">
-      <div>
+      <div class="cert-img-placeholder">Databricks</div>
+      <div class="cert-body">
         <div class="cert-name">Databricks</div>
         <div class="cert-sub">Databricks Accredited Platform Administrator</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px"></div>
+        <div class="cert-note" style="color:var(--muted)"></div>
+        <a href="https://www.credly.com/users/shubham-io" target="_blank" class="cert-badge">Databricks &#8599;</a>
       </div>
-      <a href="https://www.credly.com/users/shubham-kumar-cpr" target="_blank" class="cert-badge">Databricks &#8599;</a>
     </div>
+
     <div class="cert-card">
-      <div>
+      <div class="cert-img-placeholder">Neo4j</div>
+      <div class="cert-body">
         <div class="cert-name">Neo4j</div>
         <div class="cert-sub">Neo4j Certified Professional</div>
-        <div class="cert-note" style="font-size:10px;color:var(--muted);margin-top:3px"></div>
+        <div class="cert-note" style="color:var(--muted)"></div>
+        <a href="https://graphacademy.neo4j.com/c/bbab9888-0981-4171-be9d-3809b0bbc025" target="_blank" class="cert-badge">Neo4j &#8599;</a>
       </div>
-      <a href="https://graphacademy.neo4j.com/c/bbab9888-0981-4171-be9d-3809b0bbc025" target="_blank" class="cert-badge">Neo4j &#8599;</a>
     </div>
+
     <div class="cert-card expired">
-      <div>
+      <div class="cert-img-placeholder">Cloudera</div>
+      <div class="cert-body">
         <div class="cert-name">CTP</div>
         <div class="cert-sub">Cloudera Technical Professional</div>
-        <div class="cert-note" style="font-size:10px;color:#ff6b6b;margin-top:3px">Expired Aug 31, 2025</div>
+        <div class="cert-note" style="color:#ff6b6b">Expired Aug 31, 2025</div>
+        <a href="https://www.credly.com/users/shubham-io" target="_blank" class="cert-badge">Cloudera &#8599;</a>
       </div>
-      <a href="https://www.credly.com/users/shubham-kumar-cpr" target="_blank" class="cert-badge">Cloudera &#8599;</a>
     </div>
+
   </div>
 </section>
 
