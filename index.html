@@ -432,9 +432,9 @@ footer {
       <div class="project-tags"><span class="ptag">Prometheus</span><span class="ptag">Grafana</span><span class="ptag">Loki</span><span class="ptag">EKS</span></div>
     </div>
     <div class="project-card">
-      <h3>Lambda Alert Pipeline</h3>
-      <p>Grafana webhooks &rarr; SQS &rarr; Lambda &rarr; Dremio SQL &rarr; Zendesk ticketing with Salesforce data via IDL.</p>
-      <div class="project-tags"><span class="ptag">Lambda</span><span class="ptag">SQS</span><span class="ptag">Python</span><span class="ptag">Zendesk</span></div>
+      <h3>Automated Alert-to-Ticket Pipeline for Support</h3>
+      <p>Built an event-driven pipeline where Alertmanager routes qualifying alerts through SQS to a Lambda function. The Lambda queries Dremio Cloud to map the alerting cluster to a customer, checks whether that customer has DAaaS entitlement, and — based on alert severity plus that entitlement check — automatically opens a high- or mid-priority Zendesk ticket.</p> 
+       <div class="project-tags"><span class="ptag">AWS Lambda</span><span class="ptag">SQS</span><span class="ptag">Secrets Manager</span><span class="ptag">Alertmanager</span><span class="ptag">Dremio Cloud</span><span class="ptag">Zendesk</span><span class="ptag">OIDC & IRSA</span></div>
     </div>
     <div class="project-card">
       <h3>Airflow + Data Lineage</h3>
